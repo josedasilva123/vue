@@ -1,16 +1,14 @@
 <script setup>
-import { useTechStore } from "@/stores/techs.js"
+import TechCard from "./TechCard/TechCard.vue";
+import { useTechStore } from "@/stores/techs";
 
-const { techList, removeTech } = useTechStore();
+const { techList } = useTechStore();
 
 </script>
 
 <template>
    <ul class="list">
-      <li v-for="tech in techList" :key="tech.id">
-         <h3>{{ tech.name }}</h3>
-         <button @click="removeTech(tech.id)">Remover</button>
-      </li>
+      <TechCard v-for="tech in techList" :key="tech.id" :tech="tech" />
    </ul>
 </template>
 
